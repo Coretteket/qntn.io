@@ -1,6 +1,7 @@
 ---
 import favicon from "@/assets/favicon.png";
 import { state } from "@/lib/translate";
+import Emoji from "./emoji.astro";
 
 type Props = { title?: string };
 
@@ -25,12 +26,35 @@ const { t, locale } = state;
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <main class="mx-auto my-10 max-w-lg space-y-10 px-4">
+      <header>
+        <nav class="mb-8 flex items-center justify-between">
+          <h1 class="text-xl font-bold text-white">{t.about.name}</h1>
+          <a href={`/${t.meta.other}/`}>{t.meta.otherLocalizedName}</a>
+        </nav>
+      </header>
+      <slot />
+      <footer>
+        <hr class="mb-4 border-neutral-700" />
+        <p>
+          <a href={Astro.url.pathname === "/slugs" ? "/" : "/slugs"}>
+            <Emoji />
+          </a>
+          <span class="ml-2">2023</span>
+          <span class="text-neutral-500">{" — "}</span>
+          {t.footer.pronouns[0]}
+          <span class="text-neutral-500">/</span>
+          {t.footer.pronouns[1]}
+        </p>
+      </footer>
+    </main>
   </body>
 </html>
 
 <style is:global>
   html {
+    margin-left: calc(100vw - 100%);
+    margin-right: 0;
     font-family: system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
       "Segoe UI Symbol", "Noto Color Emoji";
     @apply bg-neutral-900 text-neutral-300;

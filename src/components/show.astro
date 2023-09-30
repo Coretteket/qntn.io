@@ -1,0 +1,7 @@
+---
+type Props = {
+  when: unknown | null | undefined;
+};
+---
+
+{Astro.props.when && <slot />}

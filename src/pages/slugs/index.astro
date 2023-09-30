@@ -1,0 +1,83 @@
+---
+import Layout from "@/components/layout.astro";
+import Show from "@/components/show.astro";
+import { db, redirect } from "@/lib/db";
+import { verifyToken } from "@/lib/server";
+import { loadTranslations } from "@/lib/translate";
+
+await loadTranslations(Astro.props.lang);
+
+const error = new URLSearchParams(Astro.url.search).get("error");
+
+const token = Astro.cookies.get("token");
+const authed = verifyToken(token?.value);
+
+const redirects = authed ? await db.select().from(redirect) : [];
+---
+
+<Layout title="Slugs">
+  <section>
+    <p class="text-lg leading-snug">
+      You've found my secret page! I use this page to manage my redirects. Unless you
+      know my password, it's not of much use to you.
+    </p>
+  </section>
+  <section>
+    <h2 class="mb-4 text-lg font-semibold text-neutral-100">Slugs</h2>
+    <hr class="mb-4 border-neutral-700" />
+    <Show when={error}>
+      <div
+        class="my-2 mt-6 rounded border border-red-600/50 bg-red-950/50 px-3 py-2 font-medium"
+      >
+        {error}
+      </div>
+    </Show>
+    <Show when={!authed}>
+      <form action="/slugs/login" method="POST">
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          required
+          class="my-2 w-full rounded border-neutral-700 bg-neutral-950 focus:border-pink-400 focus:ring-0"
+        />
+        <button
+          class="my-3 w-full rounded border border-neutral-700 bg-neutral-800 py-1.5 font-semibold"
+        >
+          Log in
+        </button>
+      </form>
+    </Show>
+    <Show when={authed}>
+      <div class="my-6 space-y-4">
+        {
+          redirects.map(({ id, slug, url }) => (
+            <div class="flex gap-2.5">
+              <input type="hidden" name="id" value={id} />
+              <input
+                name="slug"
+                type="text"
+                placeholder="Slug"
+                required
+                class="w-[30%] rounded border-neutral-700 bg-neutral-950 focus:border-pink-400 focus:ring-0"
+                value={slug}
+              />
+              <input
+                name="url"
+                type="url"
+                placeholder="URL"
+                required
+                class="flex-1 rounded border-neutral-700 bg-neutral-950 focus:border-pink-400 focus:ring-0"
+                value={url}
+              />
+              <button class="rounded border border-neutral-700 bg-neutral-800 px-3.5 py-1 font-semibold">
+                V
+              </button>
+
+            </div>
+          ))
+        }
+      </div>
+    </Show>
+  </section>
+</Layout>

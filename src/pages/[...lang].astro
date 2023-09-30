@@ -8,6 +8,8 @@ import Emoji from "@/components/emoji.astro";
 import { loadTranslations } from "@/lib/translate";
 import type { Locale } from "@/lib/types";
 
+export const prerender = true;
+
 type Props = { lang: Locale };
 
 export const getStaticPaths = (() => [
@@ -44,46 +46,29 @@ const projects = [
 ---
 
 <Layout>
-  <main class="mx-auto my-10 max-w-lg space-y-10 px-4">
-    <header>
-      <nav class="mb-8 flex items-center justify-between">
-        <h1 class="text-xl font-bold text-white">{t.about.name}</h1>
-        <a href={`/${t.meta.other}/`}>{t.meta.otherLocalizedName}</a>
-      </nav>
-      <p class="text-lg leading-snug">
-        {t.about.description}
-      </p>
-    </header>
-    <section>
-      <h2 class="mb-4 text-lg font-semibold text-neutral-100">Contact</h2>
-      <hr class="mb-4 border-neutral-700" />
-      <p set:html={t.about.contact} />
-    </section>
-    <section>
-      <h2 class="mb-4 text-lg font-semibold text-neutral-100">
-        {t.projects.title}
-      </h2>
-      <hr class="mb-4 border-neutral-700" />
-      {
-        locale === "en" && (
-          <p class="text-neutral-400">
-            All my projects are currently in Dutch and about the Netherlands, so
-            please do reach out if you need some more context!
-          </p>
-        )
-      }
-      {projects.map((project) => <Entry {...project} />)}
-    </section>
-    <footer>
-      <hr class="mb-4 border-neutral-700" />
-      <p>
-        <Emoji />
-        <span class="ml-2 font-medium">2023</span>
-        <span class="text-neutral-500">{" — "}</span>
-        {t.footer.pronouns[0]}
-        <span class="text-neutral-500">/</span>
-        {t.footer.pronouns[1]}
-      </p>
-    </footer>
-  </main>
+  <section>
+    <p class="text-lg leading-snug">
+      {t.about.description}
+    </p>
+  </section>
+  <section>
+    <h2 class="mb-4 text-lg font-semibold text-neutral-100">Contact</h2>
+    <hr class="mb-4 border-neutral-700" />
+    <p set:html={t.about.contact} />
+  </section>
+  <section>
+    <h2 class="mb-4 text-lg font-semibold text-neutral-100">
+      {t.projects.title}
+    </h2>
+    <hr class="mb-4 border-neutral-700" />
+    {
+      locale === "en" && (
+        <p class="text-neutral-400">
+          All my projects are currently in Dutch and about the Netherlands, so
+          please do reach out if you need some more context!
+        </p>
+      )
+    }
+    {projects.map((project) => <Entry {...project} />)}
+  </section>
 </Layout>
