@@ -1,22 +1,23 @@
 ---
 type Props = {
   title: string;
+  description: string;
   href: string;
   from: string;
   to?: string;
 };
 
-const { title, href, from, to } = Astro.props;
+const { title, description, href, from, to } = Astro.props;
 
 const date = from === to ? from : `${from} – ${to ?? "now"}`;
 ---
 
-<article class="my-4 grid grid-cols-2 items-center">
-  <h3 class="my-2 text-lg">
+<article class="my-6 grid grid-cols-3 items-center">
+  <h3 class="col-span-2 my-2 text-lg">
     <a {href}>{title}</a>
   </h3>
   <p class="text-right text-neutral-400">{date}</p>
-  <p class="col-span-2">
-    <slot />
+  <p class="col-span-3">
+    <Fragment set:html={description} />
   </p>
 </article>

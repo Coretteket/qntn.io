@@ -1,7 +1,7 @@
 {
-  "name": "reqntn",
+  "name": "qntn.io",
   "type": "module",
-  "version": "0.0.1",
+  "version": "2023.09.30",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

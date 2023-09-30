@@ -1,5 +1,6 @@
 ---
 import favicon from "@/assets/favicon.png";
+import { state } from "@/lib/translate";
 
 type Props = { title?: string };
 
@@ -7,13 +8,17 @@ const defaultTitle = "Quinten Coret";
 const title = Astro.props.title
   ? `${Astro.props.title} – ${defaultTitle}`
   : defaultTitle;
+
+const { t, locale } = state;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Résumé of Quinten Coret" />
+    <link rel="canonical" href={Astro.request.url} />
+    <link rel="alternate" hreflang={t.meta.other} href={`/${t.meta.other}/`} />
+    <meta name="description" content="CV - Quinten Coret" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href={favicon.src} />
     <meta name="generator" content={Astro.generator} />
@@ -26,7 +31,8 @@ const title = Astro.props.title
 
 <style is:global>
   html {
-    font-family: system-ui, sans-serif;
+    font-family: system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol", "Noto Color Emoji";
     @apply bg-neutral-900 text-neutral-300;
   }
 
