@@ -26,3 +26,7 @@ export const isValidURL = (url: string) => {
     return false;
   }
 };
+
+export const reverse = <T>(arr: T[]) => {
+  return arr.reduce((acc, cur) => [cur, ...acc], [] as T[]);
+};

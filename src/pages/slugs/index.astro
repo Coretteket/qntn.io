@@ -5,7 +5,7 @@ import Show from "@/components/show.astro";
 import { AddSlug, UpdateSlug } from "@/islands/slugs";
 
 import { db, redirect } from "@/lib/db";
-import { verifyToken } from "@/lib/server";
+import { reverse, verifyToken } from "@/lib/server";
 import { loadTranslations } from "@/lib/translate";
 
 import cx from "clsx";
@@ -19,7 +19,7 @@ const token = Astro.cookies.get("token");
 const authed = verifyToken(token?.value);
 console.log(authed);
 
-const redirects = authed ? await db.select().from(redirect) : [];
+const redirects = authed ? reverse(await db.select().from(redirect)) : [];
 ---
 
 <script>
@@ -76,11 +76,9 @@ const redirects = authed ? await db.select().from(redirect) : [];
         <AddSlug client:load />
 
         {
-          redirects
-            .toReversed()
-            .map(({ id, slug, url }) => (
-              <UpdateSlug {id} {slug} {url} client:load />
-            ))
+          redirects.map(({ id, slug, url }) => (
+            <UpdateSlug {id} {slug} {url} client:load />
+          ))
         }
         <form method="post" action="/slugs/logout">
           <button
