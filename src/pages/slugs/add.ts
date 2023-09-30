@@ -31,5 +31,5 @@ export const POST: APIRoute = async ({ request, cookies }) => {
     );
   }
 
-  return Response.redirect(`${requestURL}/slugs`);
+  return Response.redirect(`${requestURL}/slugs?added=qntn.io/${slug}`);
 };
