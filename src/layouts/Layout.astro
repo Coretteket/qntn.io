@@ -27,14 +27,10 @@ const title = Astro.props.title
 <style is:global>
   html {
     font-family: system-ui, sans-serif;
-    @apply text-neutral-800 dark:bg-neutral-900 dark:text-neutral-300;
+    @apply bg-neutral-900 text-neutral-300;
   }
 
   a[href] {
-    @apply text-cyan-600 font-medium hover:underline dark:text-pink-400;
-  }
-
-  b {
-    @apply font-semibold dark:font-bold;
+    @apply font-medium text-pink-400 hover:underline;
   }
 </style>
