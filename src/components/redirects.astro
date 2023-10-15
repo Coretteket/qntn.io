@@ -1,23 +1,18 @@
 ---
 import { AddSlug, UpdateSlug } from "@/islands/slugs";
-import { reverse } from "@/lib/server";
 import { kv } from "@/lib/kv";
 
 const redirects = await kv.hgetall("url_map").then((v) =>
   Object.entries(v!)
     .map(([slug, url]) => ({ slug, url }))
-    .toSorted((a, b) => a.slug.localeCompare(b.slug)),
+    .sort((a, b) => a.slug.localeCompare(b.slug)),
 );
 ---
 
 <div class="my-6 grid grid-flow-row gap-3">
   <AddSlug client:load />
 
-  {
-    reverse(redirects).map(({ slug, url }) => (
-      <UpdateSlug {slug} {url} client:load />
-    ))
-  }
+  {redirects.map(({ slug, url }) => <UpdateSlug {slug} {url} client:load />)}
 
   <form method="post" action="/slugs/logout">
     <button
