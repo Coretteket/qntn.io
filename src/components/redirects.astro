@@ -1,20 +1,19 @@
 ---
-// in seperate file for streaming
-
 import { AddSlug, UpdateSlug } from "@/islands/slugs";
-import { db, redirect } from "@/lib/db";
 import { reverse } from "@/lib/server";
+import { kv } from "@/lib/kv";
 
-const redirects = await db.select().from(redirect);
+const redirects = await kv
+  .hgetall("url_map")
+  .then((v) => Object.entries(v!).map(([slug, url]) => ({ slug, url })));
 ---
-
 
 <div class="my-6 grid grid-flow-row gap-3">
   <AddSlug client:load />
 
   {
-    reverse(redirects).map(({ id, slug, url }) => (
-      <UpdateSlug {id} {slug} {url} client:load />
+    reverse(redirects).map(({ slug, url }) => (
+      <UpdateSlug {slug} {url} client:load />
     ))
   }
 

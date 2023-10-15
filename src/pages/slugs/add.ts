@@ -1,7 +1,6 @@
-import { db, redirect } from "@/lib/db";
-import { comparePassword, getToken, isValidURL, verifyToken } from "@/lib/server";
+import { kv } from "@/lib/kv";
+import { isValidURL, verifyToken } from "@/lib/server";
 import type { APIRoute } from "astro";
-import { eq } from "drizzle-orm";
 
 export const POST: APIRoute = async ({ request, cookies }) => {
   const requestURL = new URL(request.url).origin;
@@ -21,10 +20,12 @@ export const POST: APIRoute = async ({ request, cookies }) => {
     return Response.redirect(`${requestURL}/slugs?error=Invalid slug.`);
 
   if (!url || typeof url !== "string" || !isValidURL(url))
-    return Response.redirect(`${requestURL}/slugs?error=Invalid URL for slug '${slug}'.`);
+    return Response.redirect(
+      `${requestURL}/slugs?error=Invalid URL for slug '${slug}'.`,
+    );
 
   try {
-    await db.insert(redirect).values({ slug, url });
+    await kv.hset("url_map", { [slug]: url });
   } catch (e) {
     return Response.redirect(
       `${requestURL}/slugs?error=Something went wrong with adding '${slug}'.`,

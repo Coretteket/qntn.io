@@ -57,7 +57,7 @@ export function AddSlug() {
   );
 }
 
-export function UpdateSlug(props: { id: string; slug: string; url: string }) {
+export function UpdateSlug(props: { slug: string; url: unknown }) {
   const [state, setState] = createStore({
     slug: props.slug,
     url: props.url,
@@ -82,7 +82,6 @@ export function UpdateSlug(props: { id: string; slug: string; url: string }) {
       action={button() === "save" ? "/slugs/edit" : "/slugs/remove"}
       class="flex gap-3"
     >
-      <input type="hidden" name="id" value={props.id} />
       <Input
         name="slug"
         placeholder="Slug"
@@ -95,7 +94,7 @@ export function UpdateSlug(props: { id: string; slug: string; url: string }) {
       <Input
         name="url"
         placeholder="URL"
-        value={state.url}
+        value={state.url as string}
         onInput={(e) =>
           setState({ url: e.currentTarget.value, unconfirmed: false })
         }

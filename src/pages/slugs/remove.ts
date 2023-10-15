@@ -1,7 +1,6 @@
-import { db, redirect } from "@/lib/db";
-import { comparePassword, getToken, verifyToken } from "@/lib/server";
+import { kv } from "@/lib/kv";
+import { verifyToken } from "@/lib/server";
 import type { APIRoute } from "astro";
-import { eq } from "drizzle-orm";
 
 export const POST: APIRoute = async ({ request, cookies }) => {
   const requestURL = new URL(request.url).origin;
@@ -14,14 +13,13 @@ export const POST: APIRoute = async ({ request, cookies }) => {
 
   const formData = await request.formData();
 
-  const id = formData.get("id");
   const slug = formData.get("slug");
 
-  if (!id || typeof id !== "string")
+  if (!slug || typeof slug !== "string")
     return Response.redirect(`${requestURL}/slugs?error=Invalid slug id.`);
 
   try {
-    await db.delete(redirect).where(eq(redirect.id, id));
+    await kv.hset("url_map", { [slug]: null });
   } catch (e) {
     return Response.redirect(
       `${requestURL}/slugs?error=Something went wrong with removing '${slug}'.`,
