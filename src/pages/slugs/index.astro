@@ -1,11 +1,9 @@
 ---
 import Layout from "@/components/layout.astro";
+import Redirects from "@/components/redirects.astro";
 import Show from "@/components/show.astro";
 
-import { AddSlug, UpdateSlug } from "@/islands/slugs";
-
-import { db, redirect } from "@/lib/db";
-import { reverse, verifyToken } from "@/lib/server";
+import { verifyToken } from "@/lib/server";
 import { loadTranslations } from "@/lib/translate";
 
 import cx from "clsx";
@@ -17,9 +15,6 @@ const added = new URLSearchParams(Astro.url.search).get("added");
 
 const token = Astro.cookies.get("token");
 const authed = verifyToken(token?.value);
-console.log(authed);
-
-const redirects = authed ? reverse(await db.select().from(redirect)) : [];
 ---
 
 <script>
@@ -72,22 +67,7 @@ const redirects = authed ? reverse(await db.select().from(redirect)) : [];
       </form>
     </Show>
     <Show when={authed}>
-      <div class="my-6 grid grid-flow-row gap-3">
-        <AddSlug client:load />
-
-        {
-          redirects.map(({ id, slug, url }) => (
-            <UpdateSlug {id} {slug} {url} client:load />
-          ))
-        }
-        <form method="post" action="/slugs/logout">
-          <button
-            class="my-3 w-full rounded border border-neutral-700 bg-neutral-800 py-1.5 font-semibold"
-          >
-            Log out
-          </button>
-        </form>
-      </div>
+      <Redirects />
     </Show>
   </section>
 </Layout>

@@ -1,0 +1,28 @@
+---
+// in seperate file for streaming
+
+import { AddSlug, UpdateSlug } from "@/islands/slugs";
+import { db, redirect } from "@/lib/db";
+import { reverse } from "@/lib/server";
+
+const redirects = await db.select().from(redirect);
+---
+
+
+<div class="my-6 grid grid-flow-row gap-3">
+  <AddSlug client:load />
+
+  {
+    reverse(redirects).map(({ id, slug, url }) => (
+      <UpdateSlug {id} {slug} {url} client:load />
+    ))
+  }
+
+  <form method="post" action="/slugs/logout">
+    <button
+      class="my-3 w-full rounded border border-neutral-700 bg-neutral-800 py-1.5 font-semibold"
+    >
+      Log out
+    </button>
+  </form>
+</div>
