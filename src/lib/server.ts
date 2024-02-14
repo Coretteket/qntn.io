@@ -26,10 +26,3 @@ export const isValidURL = (url: string) => {
     return false;
   }
 };
-
-export const revalidateSlug = (slug: string, requestURL: string) => {
-  console.log(import.meta.env.BYPASS_TOKEN);
-  return fetch(`${requestURL}/${slug}`, {
-    headers: { "x-prerender-revalidate": import.meta.env.BYPASS_TOKEN },
-  });
-};

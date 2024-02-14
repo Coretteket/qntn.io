@@ -1,5 +1,5 @@
 import { kv } from "@/lib/kv";
-import { revalidateSlug, verifyToken } from "@/lib/server";
+import { verifyToken } from "@/lib/server";
 import type { APIRoute } from "astro";
 
 export const POST: APIRoute = async ({ request, cookies, redirect }) => {
@@ -25,8 +25,6 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
       `${requestURL}/slugs?error=Something went wrong with removing '${slug}'.`,
     );
   }
-
-  await revalidateSlug(slug, requestURL);
 
   return redirect(`${requestURL}/slugs`);
 };
