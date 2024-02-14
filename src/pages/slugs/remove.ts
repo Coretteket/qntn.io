@@ -26,7 +26,7 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     );
   }
 
-  revalidateSlug(slug, requestURL);
+  await revalidateSlug(slug, requestURL);
 
   return redirect(`${requestURL}/slugs`);
 };
