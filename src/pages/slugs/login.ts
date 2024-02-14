@@ -1,19 +1,19 @@
 import { comparePassword, getToken } from "@/lib/server";
 import type { APIRoute } from "astro";
 
-export const POST: APIRoute = async ({ request, cookies }) => {
+export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   const requestURL = new URL(request.url).origin;
 
   const formData = await request.formData();
   const password = formData.get("password");
 
   if (!password || typeof password !== "string")
-    return Response.redirect(`${requestURL}/slugs?error=No password provided.`);
+    return redirect(`${requestURL}/slugs?error=No password provided.`);
 
   const success = await comparePassword(password);
 
   if (!success)
-    return Response.redirect(`${requestURL}/slugs?error=Incorrect password.`);
+    return redirect(`${requestURL}/slugs?error=Incorrect password.`);
 
   cookies.set("token", getToken(), {
     path: "/",
@@ -23,5 +23,5 @@ export const POST: APIRoute = async ({ request, cookies }) => {
     sameSite: "strict",
   });
 
-  return Response.redirect(`${requestURL}/slugs`);
+  return redirect(`${requestURL}/slugs`);
 };
