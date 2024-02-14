@@ -12,9 +12,9 @@ export default {
       "Once a seven-year-old cobbling together his first lines of code. Now a third-year student of Econometrics and Data Science at VU Amsterdam. Wherever I go, I love making creative ways to interact with data.",
     contact: html`The easiest way to reach out is to send an e-mail to
       <a href="mailto:hey@qntn.io">hey@qntn.io</a>. You can also find me on
-      <a href="/twitter">Twitter</a> for my opinions,
+      <a href="/linkedin">LinkedIn</a> for my professional escapades,
       <a href="/github">GitHub</a> for my code, and
-      <a href="/linkedin">LinkedIn</a> for my professional escapades.`,
+      <a href="/twitter">Twitter</a> for my opinions.`,
   },
   projects: {
     title: "Projects",
