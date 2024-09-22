@@ -1,7 +1,7 @@
 {
   "name": "qntn.io",
   "type": "module",
-  "version": "2023.09.30",
+  "version": "2024.09.22",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
