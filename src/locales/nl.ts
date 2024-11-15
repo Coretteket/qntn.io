@@ -1,6 +1,7 @@
 import { html } from "@/lib/html";
 
 export default {
+  now: "nu",
   meta: {
     other: "en",
     otherName: "Engels",
@@ -8,16 +9,27 @@ export default {
   },
   about: {
     name: "Quinten Coret",
-    description:
-      "Ooit een zevenjarige die zijn eerste regels code in elkaar knutselde. Nu een masterstudent Climate Econometrics aan de Vrije Universiteit. De rode draad: ik hou ervan om data creatief toegankelijk te maken.",
+    description: html`Ooit een zevenjarige die zijn eerste regels code in elkaar
+      knutselde. Nu een developer bij
+      <a href="https://openstate.eu/nl/over-ons/">Open State Foundation</a> en een masterstudent Climate
+      Econometrics aan de Vrije Universiteit. De rode draad: ik hou ervan om
+      data creatief toegankelijk te maken.`,
     contact: html`Je bereikt me het snelst door een mail te sturen naar
       <a href="mailto:hey@qntn.io">hey@qntn.io</a>. Ook kan je me vinden op
       <a href="/linkedin">LinkedIn</a> voor mijn professionele escapades,
       <a href="/github">GitHub</a> voor mijn code, en
-      <s><a href="/twitter">Twitter</a></s> <a href="/bluesky">Bluesky</a> voor mijn meningen.`,
+      <s><a href="/twitter">Twitter</a></s> <a href="/bluesky">Bluesky</a> voor
+      mijn meningen.`,
   },
   projects: {
     title: "Projecten",
+    bron: {
+      title: "Bron",
+      description: html`📣 <b>Open State Foundation</b> — Wij bundelen alle
+        openbare overheidsinformatie en maken het doorzoekbaar met tools die zo
+        flexibel zijn dat journalisten en onderzoekers er met maximale vrijheid
+        verhalen mee kunnen maken.`,
+    },
     statenkandidaten: {
       title: "Statenkandidaten",
       description: html`Alle <b>6.547 kandidaten</b> voor de Provinciale Staten

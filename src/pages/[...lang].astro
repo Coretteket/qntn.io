@@ -21,22 +21,25 @@ const { t, locale } = await loadTranslations(Astro.props.lang);
 
 const projects = [
   {
-    title: t.projects.statenkandidaten.title,
-    description: t.projects.statenkandidaten.description,
+    ...t.projects.bron,
+    href: "/bron",
+    from: "2024",
+    to: t.now,
+  },
+  {
+    ...t.projects.statenkandidaten,
     href: "/statenkandidaten",
     from: "2023",
     to: "2023",
   },
   {
-    title: t.projects.beterdanhugo.title,
-    description: t.projects.beterdanhugo.description,
+    ...t.projects.beterdanhugo,
     href: "/beterdanhugo",
     from: "2021",
     to: "2022",
   },
   {
-    title: t.projects.nieuwindekamer.title,
-    description: t.projects.nieuwindekamer.description,
+    ...t.projects.nieuwindekamer,
     href: "/nieuwindekamer",
     from: "2020",
     to: "2021",
@@ -46,9 +49,7 @@ const projects = [
 
 <Layout>
   <section>
-    <p class="text-lg leading-snug">
-      {t.about.description}
-    </p>
+    <p class="text-lg leading-snug" set:html={t.about.description} />
   </section>
   <section>
     <h2 class="mb-4 text-lg font-semibold text-neutral-100">Contact</h2>
