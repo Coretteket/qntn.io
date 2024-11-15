@@ -14,7 +14,7 @@ export default {
       <a href="mailto:hey@qntn.io">hey@qntn.io</a>. Ook kan je me vinden op
       <a href="/linkedin">LinkedIn</a> voor mijn professionele escapades,
       <a href="/github">GitHub</a> voor mijn code, en
-      <a href="/twitter">Twitter</a> voor mijn meningen.`,
+      <s><a href="/twitter">Twitter</a></s> <a href="/bluesky">Bluesky</a> voor mijn meningen.`,
   },
   projects: {
     title: "Projecten",
