@@ -18,7 +18,7 @@ export default {
       <a href="mailto:hey@qntn.io">hey@qntn.io</a>. You can also find me on
       <a href="/linkedin">LinkedIn</a> for my professional escapades,
       <a href="/github">GitHub</a> for my code, and
-      <s><a href="/twitter">Twitter</a></s> <a href="/bluesky">Bluesky</a> for
+      <s><a href="/twitter" class="opacity-50">Twitter</a></s> <a href="/bluesky">Bluesky</a> for
       my opinions.`,
   },
   projects: {

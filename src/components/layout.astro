@@ -1,11 +1,11 @@
 ---
-import favicon from "@/assets/favicon.png";
-import { state } from "@/lib/translate";
-import Emoji from "./emoji.astro";
+import favicon from '@/assets/favicon.png';
+import { state } from '@/lib/translate';
+import Emoji from './emoji.astro';
 
 type Props = { title?: string };
 
-const defaultTitle = "Quinten Coret";
+const defaultTitle = 'Quinten Coret';
 const title = Astro.props.title
   ? `${Astro.props.title} – ${defaultTitle}`
   : defaultTitle;
@@ -29,7 +29,17 @@ const { t, locale } = state;
     <main class="mx-auto my-10 max-w-lg space-y-10 px-4">
       <header>
         <nav class="mb-8 flex items-center justify-between">
-          <a href="/" class="hover:!no-underline"><h1 class="text-xl font-bold text-white">{t.about.name}</h1></a>
+          <a href="/" class="flex items-center gap-6 hover:!no-underline">
+            <img
+              src={favicon.src}
+              width="64"
+              height="64"
+              class="rounded-full border border-neutral-700"
+              loading="eager"
+              alt={t.about.name}
+            />
+            <h1 class="text-xl font-bold text-white">{t.about.name}</h1>
+          </a>
           <a href={`/${t.meta.other}/`}>{t.meta.otherLocalizedName}</a>
         </nav>
       </header>
@@ -37,11 +47,11 @@ const { t, locale } = state;
       <footer>
         <hr class="mb-4 border-neutral-700" />
         <p>
-          <a href={Astro.url.pathname === "/slugs" ? "/" : "/slugs"}>
+          <a href={Astro.url.pathname === '/slugs' ? '/' : '/slugs'}>
             <Emoji />
           </a>
           <span class="ml-2">{new Date().getFullYear()}</span>
-          <span class="text-neutral-500">{" — "}</span>
+          <span class="text-neutral-500">{' — '}</span>
           {t.footer.pronouns[0]}
           <span class="text-neutral-500">/</span>
           {t.footer.pronouns[1]}
@@ -55,8 +65,8 @@ const { t, locale } = state;
   html {
     margin-left: calc(100vw - 100%);
     margin-right: 0;
-    font-family: system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol', 'Noto Color Emoji';
     @apply bg-neutral-900 text-neutral-300;
   }
 
