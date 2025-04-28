@@ -2,7 +2,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile-dev
+      dockerfile: Dockerfile-prod
     env_file: .env
     command: node ./dist/server/entry.mjs
     ports:
