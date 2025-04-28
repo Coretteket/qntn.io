@@ -3,11 +3,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    env_file: .env
     command: node ./dist/server/entry.mjs
     ports:
       - "4321"
-    volumes:
-      - .:/app
     networks:
       - traefik
       - qntnio
