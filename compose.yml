@@ -1,0 +1,28 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    env_file: .env
+    ports:
+      - "4321:4321"
+    volumes:
+      - .:/app
+    networks:
+      - qntnio
+      - traefik
+
+  redis:
+    image: redis:alpine
+    networks:
+      - qntnio
+    volumes:
+      - redis_data:/data
+
+networks:
+  qntnio:
+  traefik:
+    external: true
+
+volumes:
+  redis_data:

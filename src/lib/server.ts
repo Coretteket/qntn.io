@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
 export const comparePassword = async (password: string) => {
+  console.log("PASSWORD_SALT", import.meta.env.PASSWORD_SALT);
   return await bcrypt.compare(password, import.meta.env.PASSWORD_SALT);
 };
 
