@@ -1,0 +1,21 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '4321'
+    volumes:
+      - .:/app
+    networks:
+      - traefik
+    restart: unless-stopped
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.qntn.rule=Host(`qntn.prikkert.nl`)'
+      - 'traefik.http.routers.qntn.entrypoints=websecure'
+      - 'traefik.http.routers.qntn.tls.certresolver=letsencrypt'
+
+networks:
+  traefik:
+    external: true
