@@ -1,6 +1,7 @@
-import { createClient } from "@vercel/kv";
+import { createClient } from "redis";
 
-export const kv = createClient({
-  url: import.meta.env.KV_REST_API_URL,
-  token: import.meta.env.KV_REST_API_TOKEN,
-});
+export const kv = createClient();
+
+kv.on("error", (err) => console.log("Redis Client Error", err));
+
+await kv.connect();

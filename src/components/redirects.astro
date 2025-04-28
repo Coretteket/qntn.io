@@ -2,7 +2,7 @@
 import { AddSlug, UpdateSlug } from "@/islands/slugs";
 import { kv } from "@/lib/kv";
 
-const redirects = await kv.hgetall("url_map").then((v) =>
+const redirects = await kv.hGetAll("url_map").then((v) =>
   Object.entries(v!)
     .map(([slug, url]) => ({ slug, url }))
     .sort((a, b) => a.slug.localeCompare(b.slug)),

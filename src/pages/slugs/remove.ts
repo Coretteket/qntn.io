@@ -19,7 +19,7 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     return redirect(`${requestURL}/slugs?error=Invalid slug id.`);
 
   try {
-    await kv.hdel("url_map", slug);
+    await kv.hDel("url_map", slug);
   } catch (e) {
     return redirect(
       `${requestURL}/slugs?error=Something went wrong with removing '${slug}'.`,

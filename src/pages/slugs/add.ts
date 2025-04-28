@@ -25,7 +25,7 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     );
 
   try {
-    await kv.hset("url_map", { [slug]: url });
+    await kv.hSet("url_map", { [slug]: url });
   } catch (e) {
     return redirect(
       `${requestURL}/slugs?error=Something went wrong with adding '${slug}'.`,
