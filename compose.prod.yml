@@ -3,6 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    command: node ./dist/server/entry.mjs
     ports:
       - '4321'
     volumes:
@@ -12,9 +13,9 @@ services:
     restart: unless-stopped
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.qntn.rule=Host(`qntn.io`)'
-      - 'traefik.http.routers.qntn.entrypoints=websecure'
-      - 'traefik.http.routers.qntn.tls.certresolver=letsencrypt'
+      - 'traefik.http.routers.qntnio.rule=Host(`qntn.io`)'
+      - 'traefik.http.routers.qntnio.entrypoints=websecure'
+      - 'traefik.http.routers.qntnio.tls.certresolver=letsencrypt'
 
 networks:
   traefik:
