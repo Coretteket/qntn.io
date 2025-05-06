@@ -17,6 +17,9 @@ importers:
       '@astrojs/tailwind':
         specifier: ^6.0.2
         version: 6.0.2(astro@5.7.6(@types/node@20.11.17)(@vercel/kv@1.0.1)(jiti@1.21.0)(rollup@4.40.1)(typescript@5.8.3))(tailwindcss@3.4.1)
+      '@fontsource-variable/quicksand':
+        specifier: ^5.2.7
+        version: 5.2.7
       astro:
         specifier: ^5.7.6
         version: 5.7.6(@types/node@20.11.17)(@vercel/kv@1.0.1)(jiti@1.21.0)(rollup@4.40.1)(typescript@5.8.3)
@@ -365,6 +368,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource-variable/quicksand@5.2.7':
+    resolution: {integrity: sha512-UbD7cnoc0qKbrfk6y8VhA7+2qncjxYT/brqk4wymIQwn0a0m5XetKzUP9kTSly7uQnar3v/pBttzfZWxb1Meow==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -2725,6 +2731,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.3':
     optional: true
+
+  '@fontsource-variable/quicksand@5.2.7': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:

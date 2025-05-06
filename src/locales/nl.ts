@@ -11,24 +11,22 @@ export default {
     name: "Quinten Coret",
     description: html`Ooit een zevenjarige die zijn eerste regels code in elkaar
       knutselde. Nu een developer bij
-      <a href="https://openstate.eu/nl/over-ons/">Open State Foundation</a> en een masterstudent Climate
-      Econometrics aan de Vrije Universiteit. De rode draad: ik hou ervan om
-      data creatief toegankelijk te maken.`,
-    contact: html`Je bereikt me het snelst door een mail te sturen naar
+      <a href="https://openstate.eu/nl/over-ons/">Open State Foundation</a> en
+      een masterstudent Climate Econometrics aan de Vrije Universiteit. De rode
+      draad: ik hou ervan om data toegankelijk te maken.`,
+    contact: html`Je bereikt me het snelst via
       <a href="mailto:hey@qntn.io">hey@qntn.io</a>. Ook kan je me vinden op
       <a href="/linkedin">LinkedIn</a> voor mijn professionele escapades,
       <a href="/github">GitHub</a> voor mijn code, en
-      <s><a href="/twitter" class="opacity-50">Twitter</a></s> <a href="/bluesky">Bluesky</a> voor
-      mijn meningen.`,
+      <a href="/bluesky">Bluesky</a> voor alle overige uitingen.`,
   },
   projects: {
     title: "Projecten",
     bron: {
       title: "Bron",
-      description: html`📣 <b>Open State Foundation</b> — Wij bundelen alle
-        openbare overheidsinformatie en maken het doorzoekbaar met tools die zo
-        flexibel zijn dat journalisten en onderzoekers er met maximale vrijheid
-        verhalen mee kunnen maken.`,
+      description: html`<b>Open State Foundation</b> maakt overheidsinformatie
+        doorzoekbaar met flexibele tools zodat journalisten en
+        onderzoekers met maximale vrijheid verhalen kunnen vertellen.`,
     },
     statenkandidaten: {
       title: "Statenkandidaten",
@@ -38,9 +36,9 @@ export default {
     },
     beterdanhugo: {
       title: "Beter dan Hugo",
-      description: html`✨ <b>Populair</b> — Meer dan <b>300.000 mensen</b> aan
-        het denken gezet over het coronabeleid door in een spel de impact van
-        maatregelen te laten zien met een simulatie en nieuwsberichten.`,
+      description: html`Meer dan <b>300.000 mensen</b> aan het denken gezet over
+        het coronabeleid door in een spel de impact van maatregelen te laten
+        zien met een simulatie en nieuwsberichten.`,
     },
     nieuwindekamer: {
       title: "Nieuw in de Kamer",
@@ -50,6 +48,7 @@ export default {
     },
   },
   footer: {
-    pronouns: ["hij", "hem"],
+    website: "Deze site volgt je niet en draait op groene stroom in de EU.",
+    updated: "Bijgewerkt in",
   },
 } as const;

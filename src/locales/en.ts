@@ -11,24 +11,22 @@ export default {
     name: "Quinten Coret",
     description: html`Once a seven-year-old cobbling together his first lines of
       code. Now a developer at
-      <a href="https://openstate.eu/en/about/">Open State Foundation</a> and
-      a master's student of Climate Econometrics at VU Amsterdam. Wherever I go,
-      I love making creative ways to make data accessible.`,
-    contact: html`The easiest way to reach out is to send an e-mail to
+      <a href="https://openstate.eu/en/about/">Open State Foundation</a> and a
+      master's student of Climate Econometrics at VU Amsterdam. Wherever I go, I
+      love making data accessible.`,
+    contact: html`The quickest way to reach me is at
       <a href="mailto:hey@qntn.io">hey@qntn.io</a>. You can also find me on
       <a href="/linkedin">LinkedIn</a> for my professional escapades,
       <a href="/github">GitHub</a> for my code, and
-      <s><a href="/twitter" class="opacity-50">Twitter</a></s> <a href="/bluesky">Bluesky</a> for
-      my opinions.`,
+      <a href="/bluesky">Bluesky</a> for all my other exploits.`,
   },
   projects: {
     title: "Projects",
     bron: {
       title: "Bron",
-      description: html`📣 <b>Open State Foundation</b> — We consolidate all
-        public government information and make it searchable with tools so
-        flexible that journalists and researchers can create stories with
-        maximum freedom.`,
+      description: html`<b>Open State Foundation</b> makes government
+        information searchable with flexible tools that journalists and
+        researchers can use them to tell stories with maximum freedom.`,
     },
     statenkandidaten: {
       title: "Council Candidates",
@@ -39,7 +37,7 @@ export default {
     },
     beterdanhugo: {
       title: "Better than Hugo",
-      description: html`✨ <b>Popular</b> — Prompted more than
+      description: html`Prompted more than
         <b>300,000 people</b> to think about Dutch pandemic policy by showing
         the impact of measures in a game with a simulation and news reports.`,
     },
@@ -51,6 +49,8 @@ export default {
     },
   },
   footer: {
-    pronouns: ["he", "him"],
+    website:
+      "This site doesn't track you and runs on green energy in the EU.",
+    updated: "Updated in",
   },
 } as const;

@@ -1,20 +1,20 @@
 ---
-import type { GetStaticPaths } from "astro";
+import type { GetStaticPaths } from 'astro';
 
-import Layout from "@/components/layout.astro";
-import Project from "@/components/project.astro";
+import Layout from '@/components/layout.astro';
+import Project from '@/components/project.astro';
 
-import { loadTranslations } from "@/lib/translate";
-import type { Locale } from "@/lib/types";
+import { loadTranslations } from '@/lib/translate';
+import type { Locale } from '@/lib/types';
 
 export const prerender = true;
 
 type Props = { lang: Locale };
 
 export const getStaticPaths = (() => [
-  { params: { lang: "en" }, props: { lang: "en" } },
-  { params: { lang: "nl" }, props: { lang: "nl" } },
-  { params: { lang: undefined }, props: { lang: "nl" } },
+  { params: { lang: 'en' }, props: { lang: 'en' } },
+  { params: { lang: 'nl' }, props: { lang: 'nl' } },
+  { params: { lang: undefined }, props: { lang: 'nl' } },
 ]) satisfies GetStaticPaths;
 
 const { t, locale } = await loadTranslations(Astro.props.lang);
@@ -22,29 +22,34 @@ const { t, locale } = await loadTranslations(Astro.props.lang);
 const projects = [
   {
     ...t.projects.bron,
-    href: "/bron",
-    from: "2024",
+    href: '/bron',
+    from: '2024',
     to: t.now,
   },
   {
     ...t.projects.statenkandidaten,
-    href: "/statenkandidaten",
-    from: "2023",
-    to: "2023",
+    href: '/statenkandidaten',
+    from: '2023',
+    to: '2023',
   },
   {
     ...t.projects.beterdanhugo,
-    href: "/beterdanhugo",
-    from: "2021",
-    to: "2022",
+    href: '/beterdanhugo',
+    from: '2021',
+    to: '2022',
   },
   {
     ...t.projects.nieuwindekamer,
-    href: "/nieuwindekamer",
-    from: "2020",
-    to: "2021",
+    href: '/nieuwindekamer',
+    from: '2020',
+    to: '2021',
   },
 ];
+
+const month = new Date().toLocaleDateString(locale, {
+  year: 'numeric',
+  month: 'long',
+});
 ---
 
 <Layout>
@@ -62,13 +67,24 @@ const projects = [
     </h2>
     <hr class="mb-4 border-neutral-700" />
     {
-      locale === "en" && (
-        <p class="text-neutral-400">
-          All my projects are currently in Dutch and about the Netherlands, so
+      locale === 'en' && (
+        <p class="text-neutral-400 my-6">
+          All my projects are currently in Dutch only, so
           please do reach out if you need some more context!
         </p>
       )
     }
     {projects.map((project) => <Project {...project} />)}
   </section>
+
+  <footer class="text-neutral-400">
+    <hr class="mb-6 border-neutral-700" />
+    <p class="mb-2">
+      {t.footer.website}
+    </p>
+    <p class="mb-2">
+      {t.footer.updated}
+      {month}.
+    </p>
+  </footer>
 </Layout>
