@@ -47,8 +47,5 @@ export default {
         waren in de Tweede Kamer door duizenden notulen te indexeren.`,
     },
   },
-  footer: {
-    website: "Deze site volgt je niet en draait op groene stroom in de EU.",
-    updated: "Bijgewerkt in",
-  },
+  footer: "Deze website draait op groene stroom in de Europese Unie. Het gebruikt geen cookies. Bijgewerkt in",
 } as const;

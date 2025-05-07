@@ -48,9 +48,5 @@ export default {
         indexing thousands of minutes for months.`,
     },
   },
-  footer: {
-    website:
-      "This site doesn't track you and runs on green energy in the EU.",
-    updated: "Updated in",
-  },
+  footer: "This website is powered by renewable energy in the European Union. It doesn't use cookies. Updated in"
 } as const;
