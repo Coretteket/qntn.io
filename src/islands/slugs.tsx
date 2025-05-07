@@ -20,7 +20,7 @@ function Input(
       required
       {...props}
       class={
-        "w-full rounded border-neutral-700 bg-neutral-950 focus:border-pink-400 focus:ring-0" +
+        "w-full rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-pink-400 focus:outline-0" +
         (props.class ? " " + props.class : "")
       }
     />
@@ -113,8 +113,8 @@ export function UpdateSlug(props: { slug: string; url: unknown }) {
             button() === "remove"
               ? remove.src
               : button() === "check"
-              ? check.src
-              : save.src
+                ? check.src
+                : save.src
           }
           class="opacity-75 invert"
         />
