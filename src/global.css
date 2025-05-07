@@ -22,10 +22,7 @@
   }
 
   a[href] {
-    @apply font-bold text-pink-400 underline decoration-pink-400/0 transition hover:decoration-pink-400/70;
-    -webkit-text-decoration-style: wavy;
-    -moz-text-decoration-style: wavy;
-    text-decoration-style: wavy;
+    @apply pointer-fine:hover:decoration-pink-400/70 font-bold text-pink-400 underline decoration-pink-400/0 decoration-wavy transition;
   }
 
   ::selection {

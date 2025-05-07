@@ -3,10 +3,10 @@ import { createStore } from "solid-js/store";
 
 import cx from "clsx";
 
-import save from "@/assets/icons/save.svg";
-import remove from "@/assets/icons/remove.svg";
-import add from "@/assets/icons/add.svg";
-import check from "@/assets/icons/check.svg";
+import save from "@/icons/save.svg";
+import remove from "@/icons/remove.svg";
+import add from "@/icons/add.svg";
+import check from "@/icons/check.svg";
 
 function Input(
   props: JSX.InputHTMLAttributes<HTMLInputElement> & {

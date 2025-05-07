@@ -1,8 +1,6 @@
 ---
 import '../global.css';
 
-import favicon from '@/assets/favicon.png';
-import headshot from '@/assets/headshot.avif';
 import { state } from '@/lib/translate';
 
 type Props = { title?: string };
@@ -23,7 +21,7 @@ const { t, locale } = state;
     <link rel="alternate" hreflang={t.meta.other} href={`/${t.meta.other}/`} />
     <meta name="description" content="CV - Quinten Coret" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href={favicon.src} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
@@ -33,7 +31,7 @@ const { t, locale } = state;
         <nav class="mb-8 flex items-center justify-between">
           <a href="/" class="flex items-center gap-6 !no-underline">
             <img
-              src={headshot.src}
+              src="/headshot.avif"
               width="64"
               height="64"
               class="rounded-full border border-neutral-700"
