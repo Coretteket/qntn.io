@@ -15,11 +15,14 @@ export default {
       een masterstudent Climate Econometrics aan de Vrije Universiteit. De rode
       draad: ik hou ervan om data toegankelijk te maken.`,
     contact: html`Je bereikt me het snelst via
-      <a href="mailto:hey@qntn.io">hey@qntn.io</a>. Ook kan je me vinden op
+      <a href="mailto:mail@qntn.io">mail@qntn.io</a>. Ook kan je me vinden op
       <a href="/linkedin">LinkedIn</a> voor mijn professionele escapades,
       <a href="/github">GitHub</a> voor mijn code, en
       <a href="/bluesky">Bluesky</a> voor alle overige uitingen.`,
   },
+  // presentations: {
+  //   title: "Presentaties",
+  // },
   projects: {
     title: "Projecten",
     bron: {
@@ -37,14 +40,14 @@ export default {
     beterdanhugo: {
       title: "Beter dan Hugo",
       description: html`Meer dan <b>300.000 mensen</b> aan het denken gezet over
-        het coronabeleid door in een spel de impact van maatregelen te laten
+        de impact van corona door in een spel de gevolgen van (geen) maatregelen nemen te laten
         zien met een simulatie en nieuwsberichten.`,
     },
     nieuwindekamer: {
       title: "Nieuw in de Kamer",
       description: html`Maandenlang <b>2.700 volgers</b>, waaronder
-        <b>41 Kamerleden</b>, voorzien van woorden die voor het eerst gezegd
-        waren in de Tweede Kamer door duizenden notulen te indexeren.`,
+        <b>41 Kamerleden</b>, voorzien van de woorden die voor het eerst gezegd
+        werden in de Tweede Kamer door duizenden notulen te indexeren.`,
     },
   },
   footer: "Deze website draait op groene stroom in de Europese Unie. Het gebruikt geen cookies. Bijgewerkt in",

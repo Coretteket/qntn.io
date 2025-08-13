@@ -10,7 +10,6 @@ services:
       - .:/app
     networks:
       - qntnio
-      - traefik
 
   redis:
     image: redis:alpine
@@ -21,8 +20,6 @@ services:
 
 networks:
   qntnio:
-  traefik:
-    external: true
 
 volumes:
   redis_data:

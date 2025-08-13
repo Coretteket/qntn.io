@@ -14,9 +14,9 @@ importers:
       '@astrojs/solid-js':
         specifier: ^5.0.9
         version: 5.0.9(@types/node@20.11.17)(jiti@2.4.2)(lightningcss@1.29.2)(solid-js@1.8.14)
-      '@fontsource-variable/quicksand':
-        specifier: ^5.2.7
-        version: 5.2.7
+      '@fontsource-variable/jetbrains-mono':
+        specifier: ^5.2.6
+        version: 5.2.6
       '@tailwindcss/vite':
         specifier: ^4.1.5
         version: 4.1.5(vite@6.3.3(@types/node@20.11.17)(jiti@2.4.2)(lightningcss@1.29.2))
@@ -359,8 +359,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource-variable/quicksand@5.2.7':
-    resolution: {integrity: sha512-UbD7cnoc0qKbrfk6y8VhA7+2qncjxYT/brqk4wymIQwn0a0m5XetKzUP9kTSly7uQnar3v/pBttzfZWxb1Meow==}
+  '@fontsource-variable/jetbrains-mono@5.2.6':
+    resolution: {integrity: sha512-1pvtyK6H1paBOixbtZ9xfQgArVQ4SJMW3WSGZPOd5PiW3yg0t8umwKnjDMzW2ofb7qSdiXnsnIaHPT36vEOdlg==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -2505,7 +2505,7 @@ snapshots:
   '@esbuild/win32-x64@0.25.3':
     optional: true
 
-  '@fontsource-variable/quicksand@5.2.7': {}
+  '@fontsource-variable/jetbrains-mono@5.2.6': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:

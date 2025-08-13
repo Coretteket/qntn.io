@@ -15,11 +15,14 @@ export default {
       master's student of Climate Econometrics at VU Amsterdam. Wherever I go, I
       love making data accessible.`,
     contact: html`The quickest way to reach me is at
-      <a href="mailto:hey@qntn.io">hey@qntn.io</a>. You can also find me on
+      <a href="mailto:mail@qntn.io">mail@qntn.io</a>. You can also find me on
       <a href="/linkedin">LinkedIn</a> for my professional escapades,
       <a href="/github">GitHub</a> for my code, and
       <a href="/bluesky">Bluesky</a> for all my other exploits.`,
   },
+  // presentations: {
+  //   title: "Presentations",
+  // },
   projects: {
     title: "Projects",
     bron: {
@@ -37,9 +40,9 @@ export default {
     },
     beterdanhugo: {
       title: "Better than Hugo",
-      description: html`Prompted more than
-        <b>300,000 people</b> to think about Dutch pandemic policy by showing
-        the impact of measures in a game with a simulation and news reports.`,
+      description: html`Prompted more than <b>300,000 people</b> to think about
+        the impact of COVID by showing the consequences of (not) taking measures
+        in a game with a simulation and news reports.`,
     },
     nieuwindekamer: {
       title: "New in Parliament",
@@ -48,5 +51,6 @@ export default {
         indexing thousands of minutes for months.`,
     },
   },
-  footer: "This website is powered by renewable energy in the European Union. It doesn't use cookies. Updated in"
+  footer:
+    "This website is powered by renewable energy in the European Union. It doesn't use cookies. Updated in",
 } as const;
