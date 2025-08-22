@@ -16,6 +16,7 @@ services:
       - "traefik.http.routers.qntnio.rule=Host(`qntn.io`)"
       - "traefik.http.routers.qntnio.entrypoints=websecure"
       - "traefik.http.routers.qntnio.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.note.middlewares=myratelimit@file,mycompress@file,myhsts@file,mysecurityheaders@file"
 
   redis:
     image: redis:alpine
