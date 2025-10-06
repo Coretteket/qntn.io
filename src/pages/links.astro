@@ -5,26 +5,19 @@ import Show from '@/components/show.astro';
 
 import { verifyToken } from '@/lib/server';
 import { loadTranslations } from '@/lib/translate';
-
-import cx from 'clsx';
+import { actions } from 'astro:actions';
 
 await loadTranslations(Astro.props.lang);
 
-const error = new URLSearchParams(Astro.url.search).get('error');
-const added = new URLSearchParams(Astro.url.search).get('added');
-
-const token = Astro.cookies.get('token');
-const authed = verifyToken(token?.value);
+const authed = verifyToken(Astro.cookies.get('token')?.value);
 ---
 
 <script>
-  // make error messages ephemeral
-  const search = new URLSearchParams(location.search);
-  if (search.get('error') || search.get('added'))
+  if (new URLSearchParams(location.search).get('_action'))
     history.replaceState({}, '', location.pathname);
 </script>
 
-<Layout title="Slugs">
+<Layout title="Links">
   <section>
     <p class="text-lg leading-snug">
       You've found my secret page! I use this page to manage my redirects.
@@ -34,23 +27,8 @@ const authed = verifyToken(token?.value);
   <section>
     <h2 class="mb-4 text-lg font-semibold text-neutral-100">Redirects</h2>
     <hr class="mb-4 border-neutral-700" />
-    <Show when={error || added}>
-      <div
-        class={cx(
-          'my-2 mt-6 rounded border px-3 py-2 font-medium',
-          error && 'border-red-600/50 bg-red-950/50',
-          added && 'border-sky-600/50 bg-sky-950/50'
-        )}>
-        <Show when={error}>
-          {error}
-        </Show>
-        <Show when={added}>
-          Successfully added <a href={`https://${added}`}>{added}</a>.
-        </Show>
-      </div>
-    </Show>
     <Show when={!authed}>
-      <form action="/slugs/login" method="POST">
+      <form action={actions.login} method="post">
         <input
           name="password"
           type="password"

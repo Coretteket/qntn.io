@@ -1,23 +1,81 @@
 ---
-import { AddSlug, UpdateSlug } from "@/islands/slugs";
-import { kv } from "@/lib/kv";
+import save from '@/icons/save.svg';
+import remove from '@/icons/remove.svg';
+import add from '@/icons/add.svg';
+import { kv } from '@/lib/kv';
+import { actions } from 'astro:actions';
 
-const redirects = await kv.hGetAll("url_map").then((v) =>
+const redirects = await kv.hGetAll('url_map').then((v) =>
   Object.entries(v!)
-    .map(([slug, url]) => ({ slug, url }))
-    .sort((a, b) => a.slug.localeCompare(b.slug)),
+    .map(([link, url]) => ({ link, url: url as string }))
+    .sort((a, b) => a.link.localeCompare(b.link))
 );
 ---
 
 <div class="my-6 grid grid-flow-row gap-3">
-  <AddSlug client:load />
-
-  {redirects.map(({ slug, url }) => <UpdateSlug {slug} {url} client:load />)}
-
-  <form method="post" action="/slugs/logout">
+  <form method="post" action={actions.addLink} class="grid grid-cols-10 gap-2">
+    <input
+      type="text"
+      name="link"
+      placeholder="Link"
+      required
+      class="w-full col-span-3 rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-pink-400 focus:outline-0"
+    />
+    <input
+      type="text"
+      name="url"
+      placeholder="URL"
+      required
+      class="w-full col-span-6 rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-pink-400 focus:outline-0"
+    />
     <button
-      class="my-3 w-full rounded border border-neutral-700 bg-neutral-800 py-1.5 font-semibold"
-    >
+      type="submit"
+      class="rounded border border-sky-600 bg-sky-900 px-1.5">
+      <img src={add.src} class="opacity-75 invert" alt="Add" />
+    </button>
+  </form>
+
+  {
+    redirects.map(({ link, url }) => (
+      <div class="grid grid-cols-10 gap-2">
+        <form method="post" action={actions.editLink} class="contents">
+          <input
+            type="text"
+            name="link"
+            placeholder="Link"
+            value={link}
+            required
+            class="w-full col-span-3 rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-pink-400 focus:outline-0"
+          />
+          <input
+            type="text"
+            name="url"
+            placeholder="URL"
+            value={url}
+            required
+            class="w-full col-span-5 rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-pink-400 focus:outline-0"
+          />
+          <button
+            type="submit"
+            class="rounded border border-pink-500 bg-pink-900 px-1.5 h-full">
+            <img src={save.src} class="opacity-75 invert" alt="Save" />
+          </button>
+        </form>
+        <form method="post" action={actions.removeLink}>
+          <input type="hidden" name="link" value={link} />
+          <button
+            type="submit"
+            class="rounded border border-red-600 bg-red-900 px-1.5 h-full">
+            <img src={remove.src} class="opacity-75 invert" alt="Remove" />
+          </button>
+        </form>
+      </div>
+    ))
+  }
+
+  <form method="post" action={actions.logout}>
+    <button
+      class="my-3 w-full rounded border border-neutral-700 bg-neutral-800 py-1.5 font-semibold">
       Log out
     </button>
   </form>

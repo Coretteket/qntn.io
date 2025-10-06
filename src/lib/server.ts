@@ -18,12 +18,3 @@ export const verifyToken = (token?: string) => {
     return false;
   }
 };
-
-export const isValidURL = (url: string) => {
-  try {
-    new URL(url);
-    return true;
-  } catch {
-    return false;
-  }
-};
