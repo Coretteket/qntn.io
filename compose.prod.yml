@@ -13,10 +13,23 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.qntnio.rule=Host(`qntn.io`) || Host(`quintencoret.nl`)"
+
+      # Main router
+      - "traefik.http.routers.qntnio.rule=Host(`quintencoret.nl`)"
       - "traefik.http.routers.qntnio.entrypoints=websecure"
       - "traefik.http.routers.qntnio.tls.certresolver=letsencrypt"
       - "traefik.http.routers.qntnio.middlewares=myratelimit@file,mycompress@file,myhsts@file,mysecurityheaders@file"
+
+      # Redirect router
+      - "traefik.http.routers.qntnio-redirect.rule=Host(`qntn.io`) || Host(`www.qntn.io`) || Host(`www.quintencoret.nl`)"
+      - "traefik.http.routers.qntnio-redirect.entrypoints=web,websecure"
+      - "traefik.http.routers.qntnio-redirect.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.qntnio-redirect.middlewares=redirect-to-main"
+
+      # Redirect middleware
+      - "traefik.http.middlewares.redirect-to-main.redirectregex.regex=^https?://[^/]+(.*)"
+      - "traefik.http.middlewares.redirect-to-main.redirectregex.replacement=https://quintencoret.nl$${1}"
+      - "traefik.http.middlewares.redirect-to-main.redirectregex.permanent=true"
 
   redis:
     image: redis:alpine
