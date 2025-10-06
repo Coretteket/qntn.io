@@ -18,7 +18,8 @@ const { t, locale } = state;
 <html lang={locale}>
   <head>
     <meta charset="UTF-8" />
-    <link rel="canonical" href={Astro.request.url} />
+    <link rel="canonical" href="https://quintencoret.nl" />
+    <link rel="alternate" href="https://qntn.io" />
     <link rel="alternate" hreflang={t.meta.other} href={`/${t.meta.other}/`} />
     <meta name="description" content="CV - Quinten Coret" />
     <meta name="viewport" content="width=device-width" />
@@ -39,7 +40,9 @@ const { t, locale } = state;
               loading="eager"
               alt={t.about.name}
             />
-            <h1 class="text-2xl font-extrabold text-neutral-100">{t.about.name}</h1>
+            <h1 class="text-2xl font-extrabold text-neutral-100">
+              {t.about.name}
+            </h1>
           </a>
           <a href={`/${t.meta.other}/`}>{t.meta.otherLocalizedName}</a>
         </nav>

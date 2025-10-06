@@ -13,7 +13,7 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.qntnio.rule=Host(`qntn.io`)"
+      - "traefik.http.routers.qntnio.rule=Host(`qntn.io`) || Host(`quintencoret.nl`)"
       - "traefik.http.routers.qntnio.entrypoints=websecure"
       - "traefik.http.routers.qntnio.tls.certresolver=letsencrypt"
       - "traefik.http.routers.note.middlewares=myratelimit@file,mycompress@file,myhsts@file,mysecurityheaders@file"
