@@ -1,0 +1,8 @@
+---
+const acceptLanguage =
+  Astro.request.headers.get('accept-language')?.toLocaleLowerCase() || '';
+
+const localePath = acceptLanguage.includes('nl') ? '/nl' : '/en';
+
+return Astro.rewrite(localePath);
+---
