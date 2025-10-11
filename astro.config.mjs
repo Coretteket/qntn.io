@@ -6,7 +6,7 @@ import node from "@astrojs/node";
 export default defineConfig({
   i18n: { locales: ["en", "nl"], defaultLocale: "nl" },
   vite: {
-    define: { BUILD_DATE: new Date() },
+    define: { BUILD_DATE: new Date().toISOString() },
     plugins: [tailwindcss()],
   },
   adapter: node({ mode: "standalone" }),

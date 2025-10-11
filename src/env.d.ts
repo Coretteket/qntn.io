@@ -1,2 +1,2 @@
 /// <reference types="astro/client" />
-declare const BUILD_DATE: Date;
+declare const BUILD_DATE: string;

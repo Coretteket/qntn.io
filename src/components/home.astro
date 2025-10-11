@@ -10,7 +10,7 @@ type Props = { locale: Locale };
 
 const { t, locale } = await loadTranslations(Astro.props.locale);
 
-const buildDate = BUILD_DATE.toLocaleDateString(locale, {
+const buildDate = new Date(BUILD_DATE).toLocaleDateString(locale, {
   year: 'numeric',
   month: 'long',
 });
