@@ -3,24 +3,24 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
+    "dev": "cross-env BUILD_TIME=$(date +%s) astro dev",
+    "build": "cross-env BUILD_TIME=$(date +%s) astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/node": "^9.4.4",
+    "@astrojs/ts-plugin": "^1.10.4",
     "@fontsource-variable/jetbrains-mono": "^5.2.6",
     "@tailwindcss/vite": "^4.1.5",
     "astro": "^5.14.1",
     "bcryptjs": "^2.4.3",
     "clsx": "^2.1.0",
+    "cross-env": "^10.1.0",
     "jsonwebtoken": "^9.0.2",
     "redis": "^4.7.0",
     "sharp": "^0.34.4",
-    "solid-js": "^1.8.14",
     "tailwindcss": "^4.1.5",
     "typescript": "^5.9.3"
   },

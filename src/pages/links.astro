@@ -1,7 +1,6 @@
 ---
 import Layout from '@/components/layout.astro';
 import Redirects from '@/components/redirects.astro';
-import Show from '@/components/show.astro';
 
 import { verifyToken } from '@/lib/server';
 import { loadTranslations } from '@/lib/translate';
@@ -27,23 +26,23 @@ const authed = verifyToken(Astro.cookies.get('token')?.value);
   <section>
     <h2 class="mb-4 text-lg font-semibold text-neutral-100">Redirects</h2>
     <hr class="mb-4 border-neutral-700" />
-    <Show when={!authed}>
-      <form action={actions.login} method="post">
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          required
-          class="my-2 w-full rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-pink-400 focus:outline-0"
-        />
-        <button
-          class="my-3 w-full rounded border border-neutral-700 bg-neutral-800 py-1.5 font-semibold">
-          Log in
-        </button>
-      </form>
-    </Show>
-    <Show when={authed}>
-      <Redirects />
-    </Show>
+    {
+      !authed ? (
+        <form action={actions.login} method="post">
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            required
+            class="my-2 w-full rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-pink-400 focus:outline-0"
+          />
+          <button class="my-3 w-full rounded border border-neutral-700 bg-neutral-800 py-1.5 font-semibold">
+            Log in
+          </button>
+        </form>
+      ) : (
+        <Redirects />
+      )
+    }
   </section>
 </Layout>

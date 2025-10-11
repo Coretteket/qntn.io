@@ -1,0 +1,13 @@
+---
+import Home from '@/components/home.astro';
+import type { GetStaticPaths } from 'astro';
+
+export const prerender = true;
+
+export const getStaticPaths = (() =>
+  (['en', 'nl'] as const).map((locale) => ({
+    params: { locale },
+  }))) satisfies GetStaticPaths;
+---
+
+<Home locale={Astro.params.locale} />

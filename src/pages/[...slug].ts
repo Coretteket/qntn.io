@@ -15,5 +15,5 @@ export const GET: APIRoute = async ({ params, redirect }) => {
     return redirect(url.replace("*", wildcard));
   }
 
-  return new Response("Not found", { status: 404 });
+  return redirect("/");
 };

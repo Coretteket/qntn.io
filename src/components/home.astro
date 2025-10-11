@@ -1,0 +1,81 @@
+---
+import Layout from '@/components/layout.astro';
+import Project from '@/components/project.astro';
+
+import { loadTranslations } from '@/lib/translate';
+import type { Locale } from '@/lib/types';
+
+type Props = { locale: Locale };
+
+const { t, locale } = await loadTranslations(Astro.props.locale);
+
+const buildTime = new Date(import.meta.env.BUILD_TIME * 1e3);
+
+const formattedBuildTime = buildTime.toLocaleDateString(locale, {
+  year: 'numeric',
+  month: 'long',
+});
+
+const projects = [
+  {
+    ...t.projects.bron,
+    href: '/bron',
+    from: '2024',
+    to: t.now,
+  },
+  {
+    ...t.projects.statenkandidaten,
+    href: '/statenkandidaten',
+    from: '2023',
+    to: '2023',
+  },
+  {
+    ...t.projects.beterdanhugo,
+    href: '/beterdanhugo',
+    from: '2021',
+    to: '2022',
+  },
+  {
+    ...t.projects.nieuwindekamer,
+    href: '/nieuwindekamer',
+    from: '2020',
+    to: '2021',
+  },
+];
+---
+
+<Layout>
+  <section>
+    <p class="" set:html={t.about.description} />
+  </section>
+
+  <section>
+    <h2 class="mt-8 mb-4 text-lg font-bold text-neutral-100">Contact</h2>
+    <hr class="mb-4 border-neutral-700" />
+    <p set:html={t.about.contact} />
+  </section>
+
+  <section>
+    <h2 class="mt-8 mb-4 text-lg font-bold text-neutral-100">
+      {t.projects.title}
+    </h2>
+    <hr class="mb-4 border-neutral-700" />
+    {
+      locale === 'en' && (
+        <p class="my-6 text-neutral-400">
+          All my projects are currently in Dutch only, so please do reach out if
+          you need some more context!
+        </p>
+      )
+    }
+    {projects.map((project) => <Project {...project} />)}
+  </section>
+
+  <footer class="mt-8 text-sm text-neutral-400">
+    <hr class="mb-8 border-neutral-700" />
+    <p>
+      {t.footer}
+      {formattedBuildTime}.
+    </p>
+  </footer>
+</Layout>

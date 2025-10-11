@@ -1,8 +1,8 @@
 ---
-const acceptLanguage =
-  Astro.request.headers.get('accept-language')?.toLocaleLowerCase() || '';
+import Home from '@/components/home.astro';
 
-const localePath = acceptLanguage.includes('nl') ? '/nl' : '/en';
-
-return Astro.rewrite(localePath);
+const locales = Astro.preferredLocaleList ?? ['nl'];
+const locale = locales.includes('nl') ? 'nl' : 'en';
 ---
+
+<Home {locale} />
