@@ -1,6 +1,7 @@
 ---
 import Layout from '@/components/layout.astro';
 import Project from '@/components/project.astro';
+import { readFileSync } from 'node:fs';
 
 import { loadTranslations } from '@/lib/translate';
 import type { Locale } from '@/lib/types';
@@ -9,9 +10,7 @@ type Props = { locale: Locale };
 
 const { t, locale } = await loadTranslations(Astro.props.locale);
 
-const buildTime = new Date(import.meta.env.BUILD_TIME * 1e3);
-
-const formattedBuildTime = buildTime.toLocaleDateString(locale, {
+const buildDate = BUILD_DATE.toLocaleDateString(locale, {
   year: 'numeric',
   month: 'long',
 });
@@ -75,7 +74,7 @@ const projects = [
     <hr class="mb-8 border-neutral-700" />
     <p>
       {t.footer}
-      {formattedBuildTime}.
+      {buildDate}.
     </p>
   </footer>
 </Layout>

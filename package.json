@@ -3,8 +3,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "cross-env BUILD_TIME=$(date +%s) astro dev",
-    "build": "cross-env BUILD_TIME=$(date +%s) astro build",
+    "dev": "astro dev",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

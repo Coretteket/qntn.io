@@ -5,7 +5,10 @@ import node from "@astrojs/node";
 // https://astro.build/config
 export default defineConfig({
   i18n: { locales: ["en", "nl"], defaultLocale: "nl" },
-  vite: { plugins: [tailwindcss()] },
+  vite: {
+    define: { BUILD_DATE: new Date() },
+    plugins: [tailwindcss()],
+  },
   adapter: node({ mode: "standalone" }),
   output: "server",
 });
