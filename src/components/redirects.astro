@@ -19,18 +19,18 @@ const redirects = await kv.hGetAll('url_map').then((v) =>
       name="link"
       placeholder="Link"
       required
-      class="w-full col-span-3 rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-pink-400 focus:outline-0"
+      class="w-full col-span-3 rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-cyan-400 focus:outline-0"
     />
     <input
       type="text"
       name="url"
       placeholder="URL"
       required
-      class="w-full col-span-6 rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-pink-400 focus:outline-0"
+      class="w-full col-span-6 rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-cyan-400 focus:outline-0"
     />
     <button
       type="submit"
-      class="rounded border border-sky-600 bg-sky-900 px-1.5">
+      class="rounded border border-cyan-600 bg-cyan-900 px-1.5">
       <img src={add.src} class="opacity-75 invert" alt="Add" />
     </button>
   </form>
@@ -45,7 +45,7 @@ const redirects = await kv.hGetAll('url_map').then((v) =>
             placeholder="Link"
             value={link}
             required
-            class="w-full col-span-3 rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-pink-400 focus:outline-0"
+            class="w-full col-span-3 rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-cyan-400 focus:outline-0"
           />
           <input
             type="text"
@@ -53,11 +53,11 @@ const redirects = await kv.hGetAll('url_map').then((v) =>
             placeholder="URL"
             value={url}
             required
-            class="w-full col-span-5 rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-pink-400 focus:outline-0"
+            class="w-full col-span-5 rounded border border-neutral-700 bg-neutral-950 px-3 py-2 focus:border-cyan-400 focus:outline-0"
           />
           <button
             type="submit"
-            class="rounded border border-pink-500 bg-pink-900 px-1.5 h-full">
+            class="rounded border border-cyan-500 bg-cyan-900 px-1.5 h-full">
             <img src={save.src} class="opacity-75 invert" alt="Save" />
           </button>
         </form>

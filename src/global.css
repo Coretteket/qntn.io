@@ -4,17 +4,21 @@
   html {
     margin-left: calc(100vw - 100%);
     margin-right: 0;
-    font-family: "JetBrains Mono Variable", system-ui, sans-serif,
-      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-      "Noto Color Emoji";
+    font-size: 18px;
+    font-family: "Literata Variable", system-ui, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     @apply bg-neutral-900 text-neutral-300;
   }
 
   a[href] {
-    @apply font-bold text-pink-400 underline decoration-pink-400/0 pointer-fine:hover:decoration-pink-400/70;
+    @apply font-semibold text-cyan-400 italic underline decoration-cyan-400/0 pointer-fine:hover:decoration-cyan-400/70;
+  }
+
+  b {
+    @apply font-semibold text-neutral-200;
   }
 
   ::selection {
-    @apply bg-pink-500/20;
+    @apply bg-cyan-500/20;
   }
 }

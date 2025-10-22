@@ -8,28 +8,30 @@ export default {
     otherLocalizedName: "English",
   },
   about: {
+    alt: "Quinten Coret spreekt in De Balie.",
     name: "Quinten Coret",
-    description: html`Ooit een zevenjarige die zijn eerste regels code in elkaar
-      knutselde. Nu een developer bij
+    description: html`Als ontwikkelaar bij
       <a href="https://openstate.eu/nl/over-ons/">Open State Foundation</a> en
-      een masterstudent Climate Econometrics aan de Vrije Universiteit. De rode
-      draad: ik hou ervan om data toegankelijk te maken.`,
+      masterstudent
+      <a
+        href="https://vu.nl/en/education/master/econometrics-and-operations-research/curriculum?specialization=climate-econometrics"
+        >Climate Econometrics</a
+      >
+      aan de Vrije Universiteit zet ik data in voor de publieke zaak. Mijn
+      drijfveer: complexe gegevens toegankelijk maken voor iedereen.`,
     contact: html`Je bereikt me het snelst via
-      <a href="mailto:mail@qntn.io">mail@qntn.io</a>. Ook kan je me vinden op
-      <a href="/linkedin">LinkedIn</a> voor mijn professionele escapades,
+      <a href="mailto:quinten@qntn.io">quinten@qntn.io</a>. Ook kan je me vinden
+      op <a href="/linkedin">LinkedIn</a> voor mijn professionele escapades,
       <a href="/github">GitHub</a> voor mijn code, en
       <a href="/bluesky">Bluesky</a> voor alle overige uitingen.`,
   },
-  // presentations: {
-  //   title: "Presentaties",
-  // },
   projects: {
     title: "Projecten",
     bron: {
       title: "Bron",
       description: html`<b>Open State Foundation</b> maakt overheidsinformatie
-        doorzoekbaar met flexibele tools zodat journalisten en
-        onderzoekers met maximale vrijheid verhalen kunnen vertellen.`,
+        doorzoekbaar met flexibele tools zodat journalisten en onderzoekers met
+        maximale vrijheid verhalen kunnen vertellen.`,
     },
     statenkandidaten: {
       title: "Statenkandidaten",
@@ -40,8 +42,8 @@ export default {
     beterdanhugo: {
       title: "Beter dan Hugo",
       description: html`Meer dan <b>300.000 mensen</b> aan het denken gezet over
-        de impact van corona door in een spel de gevolgen van (geen) maatregelen nemen te laten
-        zien met een simulatie en nieuwsberichten.`,
+        de impact van corona door in een spel de gevolgen van (geen) maatregelen
+        nemen te laten zien met een simulatie en nieuwsberichten.`,
     },
     nieuwindekamer: {
       title: "Nieuw in de Kamer",
@@ -50,5 +52,6 @@ export default {
         werden in de Tweede Kamer door duizenden notulen te indexeren.`,
     },
   },
-  footer: "Deze website draait op groene stroom in de Europese Unie. Het gebruikt geen cookies. Bijgewerkt in",
+  footer:
+    "Deze website draait op groene stroom in de EU. Het verwerkt geen persoonsgegevens. Bijgewerkt in",
 } as const;

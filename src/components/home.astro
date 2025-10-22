@@ -1,10 +1,12 @@
 ---
 import Layout from '@/components/layout.astro';
 import Project from '@/components/project.astro';
-import { readFileSync } from 'node:fs';
 
 import { loadTranslations } from '@/lib/translate';
 import type { Locale } from '@/lib/types';
+import { Picture } from 'astro:assets';
+
+import banner from '@/assets/banner.jpg';
 
 type Props = { locale: Locale };
 
@@ -44,6 +46,25 @@ const projects = [
 ---
 
 <Layout>
+  <figure class="sm:-mx-6 md:-mx-12 mb-6">
+    <Picture
+      src={banner}
+      formats={['avif', 'png']}
+      layout="constrained"
+      width={1200}
+      height={800}
+      loading="eager"
+      fetchpriority="high"
+      alt={t.about.alt}
+      title={t.about.alt}
+      class="rounded"
+    />
+    <figcaption
+      class="mt-4 text-right text-sm text-neutral-500 sm:mr-6 md:mr-12">
+      © James O'Brien, OCCRP
+    </figcaption>
+  </figure>
+
   <section>
     <p class="" set:html={t.about.description} />
   </section>
@@ -70,7 +91,7 @@ const projects = [
     {projects.map((project) => <Project {...project} />)}
   </section>
 
-  <footer class="mt-8 text-sm text-neutral-400">
+  <footer class="mt-8 text-neutral-400">
     <hr class="mb-8 border-neutral-700" />
     <p>
       {t.footer}

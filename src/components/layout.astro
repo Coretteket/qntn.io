@@ -1,5 +1,6 @@
 ---
-import '@fontsource-variable/jetbrains-mono';
+import '@fontsource-variable/literata/wght-italic.css';
+import '@fontsource-variable/literata/wght.css';
 import '../global.css';
 
 import { state } from '@/lib/translate';
@@ -34,16 +35,6 @@ const { t, locale } = state;
     <main class="mx-auto my-12 max-w-lg space-y-10 px-4">
       <header>
         <nav class="mb-8 flex items-center justify-between gap-6">
-          <a href={headshot.src}>
-            <Image
-              src={headshot}
-              width="56"
-              height="56"
-              class="rounded-full border border-neutral-700 text-neutral-900"
-              alt={t.about.name}
-              priority={true}
-            />
-          </a>
           <a href="/" class="grow !no-underline">
             <h1 class="text-2xl font-extrabold text-neutral-100">
               {t.about.name}

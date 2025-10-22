@@ -8,15 +8,20 @@ export default {
     otherLocalizedName: "Nederlands",
   },
   about: {
+    alt: "Quinten Coret speaks in De Balie.",
     name: "Quinten Coret",
-    description: html`Once a seven-year-old cobbling together his first lines of
-      code. Now a developer at
-      <a href="https://openstate.eu/en/about/">Open State Foundation</a> and a
-      master's student of Climate Econometrics at VU Amsterdam. Wherever I go, I
-      love making data accessible.`,
+    description: html`As a developer at
+      <a href="https://openstate.eu/en/over-ons/">Open State Foundation</a> and
+      a master’s student in
+      <a
+        href="https://vu.nl/en/education/master/econometrics-and-operations-research/curriculum?specialization=climate-econometrics"
+        >Climate Econometrics</a
+      >
+      at the Vrije Universiteit, I put data to work for the public good. My
+      goal: turning complex datasets into practical insights for everyone.`,
     contact: html`The quickest way to reach me is at
-      <a href="mailto:mail@qntn.io">mail@qntn.io</a>. You can also find me on
-      <a href="/linkedin">LinkedIn</a> for my professional escapades,
+      <a href="mailto:quinten@qntn.io">quinten@qntn.io</a>. You can also find me
+      on <a href="/linkedin">LinkedIn</a> for my professional escapades,
       <a href="/github">GitHub</a> for my code, and
       <a href="/bluesky">Bluesky</a> for all my other exploits.`,
   },
@@ -52,5 +57,5 @@ export default {
     },
   },
   footer:
-    "This website is powered by renewable energy in the European Union. It doesn't use cookies. Updated in",
+    "This website is powered by renewable energy in the EU. It doesn't process any personal data. Updated in",
 } as const;

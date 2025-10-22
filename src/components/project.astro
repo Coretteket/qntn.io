@@ -9,12 +9,11 @@ type Props = {
 
 const { title, description, href, from, to } = Astro.props;
 
-const date = from === to ? from : `${from}–${to ?? 'now'}`;
+const date = from === to ? from : `${from} – ${to ?? 'now'}`;
 ---
 
 <article class="my-4 grid grid-cols-3 items-center">
   <h3 class="col-span-2 my-2">
-    <span class="text-neutral-400">*</span>
     <a {href}>{title}</a>
   </h3>
   <p class="text-right text-neutral-400">{date}</p>
