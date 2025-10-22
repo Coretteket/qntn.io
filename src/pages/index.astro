@@ -1,8 +1,7 @@
 ---
 import Home from '@/components/home.astro';
 
-const locales = Astro.preferredLocaleList ?? ['nl'];
-const locale = locales.includes('nl') ? 'nl' : 'en';
+export const prerender = true;
 ---
 
-<Home {locale} />
+<Home locale="nl" />
