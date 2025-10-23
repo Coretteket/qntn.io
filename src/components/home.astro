@@ -46,15 +46,16 @@ const projects = [
 ---
 
 <Layout>
-  <figure class="sm:-mx-6 md:-mx-12 mb-6">
+  <figure class="mb-6 sm:-mx-6 md:-mx-12">
     <Picture
       src={banner}
-      formats={['avif', 'png']}
+      formats={['avif']}
       layout="constrained"
       width={1200}
       height={800}
       loading="eager"
       fetchpriority="high"
+      decoding="sync"
       alt={t.about.alt}
       title={t.about.alt}
       class="rounded"

@@ -9,28 +9,27 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/node": "^9.4.4",
-    "@astrojs/ts-plugin": "^1.10.4",
+    "@astrojs/check": "^0.9.5",
+    "@astrojs/node": "^9.5.0",
+    "@astrojs/ts-plugin": "^1.10.5",
     "@fontsource-variable/literata": "^5.2.8",
-    "@tailwindcss/vite": "^4.1.5",
-    "astro": "^5.14.1",
-    "bcryptjs": "^2.4.3",
-    "clsx": "^2.1.0",
+    "@tailwindcss/vite": "^4.1.16",
+    "astro": "^5.15.0",
+    "bcryptjs": "^3.0.2",
+    "clsx": "^2.1.1",
     "cross-env": "^10.1.0",
     "jsonwebtoken": "^9.0.2",
-    "redis": "^4.7.0",
+    "redis": "^5.8.3",
     "sharp": "^0.34.4",
-    "tailwindcss": "^4.1.5",
+    "tailwindcss": "^4.1.16",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.7",
-    "@types/bcryptjs": "^2.4.6",
-    "@types/jsonwebtoken": "^9.0.5",
-    "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.13.0",
-    "prettier-plugin-tailwindcss": "^0.6.11"
+    "@tailwindcss/forms": "^0.5.10",
+    "@types/jsonwebtoken": "^9.0.10",
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.7.1"
   },
   "prettier": {
     "plugins": [
