@@ -22,10 +22,10 @@ const { t, locale } = state;
 <html lang={locale}>
   <head>
     <meta charset="UTF-8" />
-    <link rel="canonical" href="https://quintencoret.nl" />
+    <link rel="canonical" hreflang={locale} href={`https://quintencoret.nl/${locale}`} />
+    <link rel="alternate" hreflang={t.meta.other} href={`https://quintencoret.nl/${t.meta.other}`} />
     <link rel="alternate" href="https://qntn.io" />
-    <link rel="alternate" hreflang={t.meta.other} href={`/${t.meta.other}/`} />
-    <meta name="description" content="CV - Quinten Coret" />
+    <meta name="description" content="Quinten Coret" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href={favicon.src} />
     <meta name="generator" content={Astro.generator} />
