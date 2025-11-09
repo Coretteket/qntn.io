@@ -56,6 +56,11 @@ export default {
         indexing thousands of minutes for months.`,
     },
   },
-  footer:
-    "This website is powered by renewable energy in the EU. It doesn't process any personal data. Updated in",
+  footer: html`This website uses
+    <a
+      href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fquintencoret.nl"
+    >
+      100% green hosting
+    </a>
+    in the EU. It doesn't process any personal data. Updated in`,
 } as const;

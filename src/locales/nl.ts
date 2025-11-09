@@ -52,6 +52,11 @@ export default {
         werden in de Tweede Kamer door duizenden notulen te indexeren.`,
     },
   },
-  footer:
-    "Deze website draait op groene stroom in de EU. Het verwerkt geen persoonsgegevens. Bijgewerkt in",
+  footer: html`Deze site draait op
+    <a
+      href="https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Fquintencoret.nl"
+    >
+      100% groene stroom
+    </a>
+    in de EU. Het verwerkt geen persoonsgegevens. Bijgewerkt in`,
 } as const;

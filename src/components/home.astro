@@ -95,7 +95,7 @@ const projects = [
   <footer class="mt-8 text-neutral-400">
     <hr class="mb-8 border-neutral-700" />
     <p>
-      {t.footer}
+      <span set:html={t.footer} />
       {buildDate}.
     </p>
   </footer>
