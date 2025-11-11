@@ -30,11 +30,18 @@ export default {
   // },
   projects: {
     title: "Projects",
+    politiekereclame: {
+      title: "Political Ad Tracker",
+      description: html`Compiled over <b>10 million euros</b> in political
+        advertising spending in a clear overview, so everyone can track who pays
+        to spread their message.`,
+    },
     bron: {
       title: "Bron",
-      description: html`<b>Open State Foundation</b> makes government
-        information searchable with flexible tools that journalists and
-        researchers can use them to tell stories with maximum freedom.`,
+      description: html`Developed a search platform with
+        <b>2.5 million documents</b> from all levels of Dutch government, so
+        journalists and researchers can do their important work quickly and
+        flexibly.`,
     },
     statenkandidaten: {
       title: "Council Candidates",

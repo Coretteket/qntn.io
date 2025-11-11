@@ -27,11 +27,17 @@ export default {
   },
   projects: {
     title: "Projecten",
+    politiekereclame: {
+      title: "Politieke Reclame Tracker",
+      description: html`Meer dan <b>10 miljoen euro</b> aan politieke
+        reclame-uitgaven overzichtelijk in beeld gebracht, zodat iedereen kan
+        volgen wie betaalt om hun boodschap te verspreiden.`,
+    },
     bron: {
       title: "Bron",
-      description: html`<b>Open State Foundation</b> maakt overheidsinformatie
-        doorzoekbaar met flexibele tools zodat journalisten en onderzoekers met
-        maximale vrijheid verhalen kunnen vertellen.`,
+      description: html`Een zoekplatform ontwikkeld met
+        <b>2,5 miljoen documenten</b> uit alle lagen van de overheid, zodat
+        journalisten en onderzoekers snel en flexibel hun belangrijke werk kunnen doen.`,
     },
     statenkandidaten: {
       title: "Statenkandidaten",

@@ -19,6 +19,12 @@ const buildDate = new Date(BUILD_DATE).toLocaleDateString(locale, {
 
 const projects = [
   {
+    ...t.projects.politiekereclame,
+    href: '/politiekereclame',
+    from: '2025',
+    to: t.now,
+  },
+  {
     ...t.projects.bron,
     href: '/bron',
     from: '2024',
