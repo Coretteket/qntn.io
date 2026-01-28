@@ -23,7 +23,9 @@ export default {
       <a href="mailto:quinten@qntn.io">quinten@qntn.io</a>. You can also find me
       on <a href="/linkedin">LinkedIn</a> for my professional escapades,
       <a href="/github">GitHub</a> for my code, and
-      <a href="/bluesky">Bluesky</a> for all my other exploits.`,
+      <a href="/bluesky">Bluesky</a> or
+      <a href="https://mastodon.nl/@qntn" rel="me">Mastodon</a> for all my other
+      exploits.`,
   },
   // presentations: {
   //   title: "Presentations",

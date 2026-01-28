@@ -23,7 +23,9 @@ export default {
       <a href="mailto:quinten@qntn.io">quinten@qntn.io</a>. Ook kan je me vinden
       op <a href="/linkedin">LinkedIn</a> voor mijn professionele escapades,
       <a href="/github">GitHub</a> voor mijn code, en
-      <a href="/bluesky">Bluesky</a> voor alle overige uitingen.`,
+      <a href="/bluesky">Bluesky</a> of
+      <a href="https://mastodon.nl/@qntn" rel="me">Mastodon</a> voor alle
+      overige uitingen.`,
   },
   projects: {
     title: "Projecten",
@@ -37,7 +39,8 @@ export default {
       title: "Bron",
       description: html`Een zoekplatform ontwikkeld met
         <b>2,5 miljoen documenten</b> uit alle lagen van de overheid, zodat
-        journalisten en onderzoekers snel en flexibel hun belangrijke werk kunnen doen.`,
+        journalisten en onderzoekers snel en flexibel hun belangrijke werk
+        kunnen doen.`,
     },
     statenkandidaten: {
       title: "Statenkandidaten",
